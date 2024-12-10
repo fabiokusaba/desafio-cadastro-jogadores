@@ -33,7 +33,7 @@ public class JogadorRepository {
 
     public List<String> listarCodinomesPorGrupo(GrupoCodinome grupoCodinome) {
         return jdbcClient.sql("""
-                SELECT distinct(codinomes) FROM JOGADORES WHERE grupo_codinome = :grupoCodinome
+                SELECT distinct(codinome) FROM JOGADORES WHERE grupo_codinome = :grupoCodinome
                 """)
                 .param("grupoCodinome", grupoCodinome.name())
                 .query(String.class)
