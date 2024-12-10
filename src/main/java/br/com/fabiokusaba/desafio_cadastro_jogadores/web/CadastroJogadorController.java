@@ -1,10 +1,13 @@
 package br.com.fabiokusaba.desafio_cadastro_jogadores.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.fabiokusaba.desafio_cadastro_jogadores.model.GrupoCodinome;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.model.Jogador;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.service.JogadorService;
 
@@ -16,6 +19,12 @@ public class CadastroJogadorController {
 
     public CadastroJogadorController(JogadorService jogadorService) {
         this.jogadorService = jogadorService;
+    }
+
+    @GetMapping
+    public String paginaCadastroJogador(Model model) {
+        model.addAttribute("gruposCodinomes", GrupoCodinome.values());
+        return "cadastro_jogador";
     }
 
     @PostMapping
