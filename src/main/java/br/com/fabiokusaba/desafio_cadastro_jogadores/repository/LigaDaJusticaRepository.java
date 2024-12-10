@@ -2,6 +2,7 @@ package br.com.fabiokusaba.desafio_cadastro_jogadores.repository;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.model.GrupoCodinome;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.web.LigaDaJusticaDTO;
 
+@Repository
 public class LigaDaJusticaRepository implements CodinomeRepository {
 
     @Override
