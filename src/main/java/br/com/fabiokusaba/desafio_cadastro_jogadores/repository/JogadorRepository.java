@@ -1,8 +1,11 @@
 package br.com.fabiokusaba.desafio_cadastro_jogadores.repository;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import br.com.fabiokusaba.desafio_cadastro_jogadores.model.GrupoCodinome;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.model.Jogador;
 
 @Repository
@@ -26,5 +29,14 @@ public class JogadorRepository {
                 .update();
         
         return jogador;
+    }
+
+    public List<String> listarCodinomesPorGrupo(GrupoCodinome grupoCodinome) {
+        return jdbcClient.sql("""
+                SELECT distinct(codinomes) FROM JOGADORES WHERE grupo_codinome = :grupoCodinome
+                """)
+                .param("grupoCodinome", grupoCodinome.name())
+                .query(String.class)
+                .list();
     }
 }
