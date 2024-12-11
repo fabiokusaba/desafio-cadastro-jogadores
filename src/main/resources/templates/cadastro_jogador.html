@@ -14,11 +14,13 @@
             <div>
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" th:field="*{nome}" required>
+                <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Nome é obrigatório</div>
             </div>
 
             <div>
-                <label for="email">Email:</label>
+                <label for="email">E-mail:</label>
                 <input type="text" id="email" th:field="*{email}" required>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail inválido</div>
             </div>
 
             <div>
@@ -32,6 +34,7 @@
                     <input type="radio" th:field="*{grupoCodinome}" th:value="${grupo.name()}" th:id="${grupo.name()}" required>
                     <label th:for="${grupo.name()}" th:text="${grupo.getNome()}"></label>
                 </div>
+                <div th:if="${#fields.hasErrors('grupoCodinome')}" th:errors="*{grupoCodinome}">Seleção de grupo de codinome é obrigatória</div>
             </div>
 
             <div>
