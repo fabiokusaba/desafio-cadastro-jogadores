@@ -49,7 +49,7 @@ public class CodinomeService {
         // Desta forma, vamos criar um repositório baseado no grupoCodinome que for passado.
         var codinomeRepository = codinomesRepositoryFactory.create(grupoCodinome);
 
-        return codinomeRepository.buscarCodinomes();
+        return codinomeRepository.buscarCodinomes().getCodinomes();
     }
 
     private String sortearCodinome(List<String> codinomesDisponiveis) {
