@@ -39,4 +39,10 @@ public class JogadorRepository {
                 .query(String.class)
                 .list();
     }
+
+    public List<Jogador> listarJogadores() {
+        return jdbcClient.sql("SELECT * FROM JOGADORES ORDER BY LOWER(nome), id")
+            .query(Jogador.class)
+            .list();
+    }
 }

@@ -34,8 +34,11 @@ public class JogadorService {
         return jogadorRepository.salvar(novoJogador);
     }
 
+    public List<Jogador> listarJogadores() {
+        return jogadorRepository.listarJogadores();
+    }
+
     private List<String> listarCodinomesEmUso(GrupoCodinome grupoCodinome) {
         return jogadorRepository.listarCodinomesPorGrupo(grupoCodinome);
     }
-
 }
