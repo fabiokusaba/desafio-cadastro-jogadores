@@ -41,6 +41,10 @@
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                 <a th:href="@{/listagem-jogadores}" class="btn btn-primary">Listar Jogadores</a>
             </div>
+
+            <div th:if="${errorMessage}">
+                <p th:text="${errorMessage}"></p>
+            </div>
         </form>
     </div>
 

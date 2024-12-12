@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.fabiokusaba.desafio_cadastro_jogadores.exception.GrupoCodinomeIndisponivelException;
 import br.com.fabiokusaba.desafio_cadastro_jogadores.model.GrupoCodinome;
 
 @Service
@@ -19,7 +20,7 @@ public class CodinomeService {
         var codinomesDisponiveis = listarCodinomesDisponiveis(grupoCodinome, codinomesEmUso);
         
         if (codinomesDisponiveis.isEmpty()) {
-            throw new Exception("Não há codinomes disponíveis para o grupo " + grupoCodinome.getNome());
+            throw new GrupoCodinomeIndisponivelException();
         }
         
         var codinomeSorteado = sortearCodinome(codinomesDisponiveis);
